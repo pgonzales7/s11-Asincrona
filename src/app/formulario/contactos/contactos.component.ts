@@ -13,7 +13,7 @@ export class ContactosComponent {
   Enviar(){
     if(this.model){
       
-      alert("Todos los datos son válidos");
+      this.valido = true;
 
     }
   }
