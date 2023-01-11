@@ -53,6 +53,10 @@
         <section>
             <button type="button" class="btn btn-success" (click)="Enviar()">Confirmar</button>
         </section>
+      
+        <section class="ms-3">
+            <h3 *ngIf="valido==true">Todos los datos son válidos</h3>
+        </section>
     </form>
 </section>
 
