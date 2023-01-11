@@ -1,0 +1,59 @@
+<section class="container-sm">
+    <form #formulario="ngForm">
+        <section class="form-group m-3">
+            <label for="nom" class="form-label">Nombre</label>
+            <input type="email" class="form-control" name="nom" [(ngModel)]="model.nombre" required minlength="10" #nombre="ngModel">
+        </section>
+
+        <!-- Validaciones -->
+
+        <section *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+            <section *ngIf="nombre.errors?.['required']">
+                El nombre es requerido
+            </section>
+
+            <section *ngIf="nombre.errors?.['minlength']">
+                Debe tener como mínimo 10 caracteres
+            </section>
+        </section>
+
+        <section class="m-3">
+            <label for="ema" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="ema" [(ngModel)]="model.email" required pattern="^[a-z]+[a-z0-9._-]+@[a-z]+\.[a-z.]{2,5}$" #email="ngModel">
+        </section>
+
+        <!-- Validaciones -->
+
+        <section *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            <section *ngIf="email.errors?.['required']">
+                El email es requerido
+            </section>
+            <section *ngIf="email.errors?.['pattern']">
+                El email no es válido
+            </section>
+        </section>
+
+        <section class="m-3">
+            <label for="men" class="form-label">Mensaje</label>
+            <textarea class="form-control" name="men" rows="4" [(ngModel)]="model.mensaje" required minlength="500" #mensaje="ngModel"></textarea>
+        </section>
+
+        <!-- Validaciones -->
+
+        <section *ngIf="mensaje.invalid && (mensaje.dirty || mensaje.touched)" class="alert alert-danger">
+            <section *ngIf="mensaje.errors?.['required']">
+                El mensaje es requerido
+            </section>
+
+            <section *ngIf="mensaje.errors?.['minlength']">
+                Debe tener como mínimo 500 caracteres
+            </section>
+        </section>
+
+        <section>
+            <button type="button" class="btn btn-success" (click)="Enviar()">Confirmar</button>
+        </section>
+    </form>
+</section>
+
+
